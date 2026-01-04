@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 
-/** 
+/**
 	Uses https://www.astroicon.dev/getting-started/
 	Find icons via guide: https://www.astroicon.dev/guides/customization/#open-source-icon-sets
 	Only installed pack is: @iconify-json/mdi
@@ -11,32 +11,47 @@ const socialLinks: {
 	isWebmention?: boolean;
 	link: string;
 	name: string;
+	isExternal?: boolean;
 }[] = [
 	{
-		friendlyName: "Github",
-		link: "https://github.com/chrismwilliams/astro-cactus",
+		friendlyName: "GitHub",
+		link: "https://github.com/username",
 		name: "mdi:github",
+		isExternal: true,
+	},
+	{
+		friendlyName: "LinkedIn",
+		link: "https://linkedin.com/in/username",
+		name: "mdi:linkedin",
+		isExternal: true,
+	},
+	{
+		friendlyName: "Phone",
+		link: "tel:+1234567890",
+		name: "mdi:phone",
+		isExternal: false,
+	},
+	{
+		friendlyName: "Email",
+		link: "mailto:email@example.com",
+		name: "mdi:email",
+		isExternal: false,
 	},
 ];
 ---
 
-<div class="flex flex-wrap items-end gap-x-2">
-	<p>Find me on</p>
-	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
-		{
-			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (
-				<li class="flex">
-					<a
-						class="hover:text-link inline-block"
-						href={link}
-						rel={`noreferrer ${isWebmention ? "me authn" : ""}`}
-						target="_blank"
-					>
-						<Icon aria-hidden="true" class="h-8 w-8" focusable="false" name={name} />
-						<span class="sr-only">{friendlyName}</span>
-					</a>
-				</li>
-			))
-		}
-	</ul>
+<div class="flex flex-wrap items-center gap-4">
+	{
+		socialLinks.map(({ friendlyName, isWebmention, link, name, isExternal }) => (
+			<a
+				class="hover:text-link flex items-center gap-2 transition-colors"
+				href={link}
+				rel={isExternal ? `noreferrer ${isWebmention ? "me authn" : ""}` : undefined}
+				target={isExternal ? "_blank" : undefined}
+			>
+				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name={name} />
+				<span>{friendlyName}</span>
+			</a>
+		))
+	}
 </div>
