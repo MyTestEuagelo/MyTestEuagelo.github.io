@@ -5,7 +5,7 @@ import { menuLinks } from "@/site.config";
 import { siteConfig } from "../../site.config";
 ---
 
-<header class="group relative mb-28 flex items-center sm:ps-18" id="main-header">
+<header class="group relative mb-8 flex items-center sm:ps-18" id="main-header">
 	<div class="flex sm:flex-col">
 		<a
 			aria-current={Astro.url.pathname === "/" ? "page" : false}
@@ -94,6 +94,7 @@ import { siteConfig } from "../../site.config";
 		</button>
 	</mobile-button>
 </header>
+<div class="mb-16 border-b border-[#292f38]"></div>
 
 <script>
 	import { toggleClass } from "@/utils/domElement";
