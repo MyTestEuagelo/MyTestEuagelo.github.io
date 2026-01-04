@@ -25,9 +25,9 @@ export const siteConfig: SiteConfig = {
 		- The link value found in src/components/layout/Header.astro L:35
 		- In the footer found in src/components/layout/Footer.astro L:12
 	*/
-	title: "Astro Cactus2",
+	title: "Bill Bo",
 	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
-	url: "test-euagelo-site.netlify.app",
+	url: "https://test-euagelo-site.netlify.app",
 };
 
 // Used to generate links in both the Header & Footer.
