@@ -8,7 +8,8 @@ import { siteConfig } from "../../site.config";
 <header class="group relative mb-8 flex items-center sm:ps-18" id="main-header">
 	<div class="flex">
 		<a
-			class="flex items-start gap-3 sm:gap-4 sm:relative sm:grayscale sm:hover:filter-none"
+			aria-current={Astro.url.pathname === "/" ? "page" : false}
+			class="inline-flex items-center sm:relative sm:inline-block sm:grayscale sm:hover:filter-none"
 			href="/"
 		>
 
