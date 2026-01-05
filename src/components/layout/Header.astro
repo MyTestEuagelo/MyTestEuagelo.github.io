@@ -8,9 +8,10 @@ import { siteConfig } from "../../site.config";
 <header class="group relative mb-8 flex items-center sm:ps-18" id="main-header">
 	<div class="flex sm:flex-col">
 		<a
-		class="inline-flex items-center gap-3 sm:gap-4 sm:relative sm:grayscale sm:hover:filter-none"
-		href="/"
+			class="flex items-start gap-3 sm:gap-4 sm:relative sm:grayscale sm:hover:filter-none"
+			href="/"
 		>
+
 
 
 
@@ -59,26 +60,33 @@ xmlns="http://www.w3.org/2000/svg"
 
 
 
+<div class="flex flex-col">
+	<span class="text-xl font-bold sm:text-2xl">
+		{siteConfig.title}
+	</span>
 
-			<span class="text-xl font-bold sm:text-2xl">{siteConfig.title}</span>
-		</a>
-		<nav
-			aria-label="Main menu"
-			class="bg-global-bg absolute -inset-x-4 top-12 hidden flex-col divide-y px-2 py-4 group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:divide-x sm:divide-y-0 sm:bg-transparent sm:p-0"
-			id="navigation-menu"
-		>
-			{
-				menuLinks.map((link) => (
-					<a
-						aria-current={Astro.url.pathname === link.path ? "page" : false}
-						class="text-accent px-2 py-4 font-semibold sm:px-4 sm:py-0 sm:underline-offset-2 sm:hover:underline"
-						href={link.path}
-					>
-						{link.title}
-					</a>
-				))
-			}
-		</nav>
+	<nav
+		aria-label="Main menu"
+		class="mt-1 flex gap-3 text-sm font-semibold sm:gap-4"
+		id="navigation-menu"
+	>
+		{
+			menuLinks.map((link) => (
+				<a
+					aria-current={Astro.url.pathname === link.path ? "page" : false}
+					class="text-accent sm:underline-offset-2 sm:hover:underline"
+					href={link.path}
+				>
+					{link.title}
+				</a>
+			))
+		}
+	</nav>
+</div>
+</a>
+
+
+
 	</div>
 	<Search />
 	<ThemeToggle />
