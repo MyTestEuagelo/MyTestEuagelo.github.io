@@ -6,7 +6,7 @@ import { siteConfig } from "../../site.config";
 ---
 
 <header class="group relative mb-8 flex items-center sm:ps-18" id="main-header">
-	<div class="flex sm:flex-col">
+	<div class="flex">
 		<a
 			class="flex items-start gap-3 sm:gap-4 sm:relative sm:grayscale sm:hover:filter-none"
 			href="/"
@@ -67,14 +67,14 @@ xmlns="http://www.w3.org/2000/svg"
 
 	<nav
 		aria-label="Main menu"
-		class="mt-1 flex gap-3 text-sm font-semibold sm:gap-4"
+		class="mt-1 flex divide-x text-sm font-semibold"
 		id="navigation-menu"
 	>
 		{
 			menuLinks.map((link) => (
 				<a
 					aria-current={Astro.url.pathname === link.path ? "page" : false}
-					class="text-accent sm:underline-offset-2 sm:hover:underline"
+					class="text-accent px-2 sm:underline-offset-2 sm:hover:underline"
 					href={link.path}
 				>
 					{link.title}
